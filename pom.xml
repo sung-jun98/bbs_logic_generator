@@ -58,7 +58,13 @@
 	    <artifactId>cos</artifactId>
 	    <version>09May2002</version>
 	</dependency>
-
+	<!-- Servlet API 종속성 추가 -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>4.0.1</version> <!-- 원하는 Servlet API 버전을 지정 -->
+        <scope>provided</scope>
+    </dependency>
   </dependencies>
   
 </project>
