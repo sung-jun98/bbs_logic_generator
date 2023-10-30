@@ -110,7 +110,9 @@ public class test_login_apply extends HttpServlet {
 	private dataHolder deserializeDataHolder() throws ClassNotFoundException {
 		//.ser가 있는 경로
 		//String filePath = "C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\test\\dataHolder.ser";
-		String filePath = "C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\test\\" + this.dataHolderPath;
+		//String filePath = "C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\test\\" + this.dataHolderPath;
+		String directoryPath = "src/test"; // 이 부분을 수정
+		String filePath = directoryPath + "/dataHolder" + sessionID + ".ser"; //로컬호스트와 호스팅 서버에서의 절대경로가 다르기 떄문에 수정해줌
 		
 		try {
 			FileInputStream fileIn = new FileInputStream(filePath);

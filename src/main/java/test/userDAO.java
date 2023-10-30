@@ -19,7 +19,8 @@ public class userDAO {
 		String dbURL = "jdbc:mysql://dfkpczjgmpvkugnb.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/zrwtm66m1zvne7fv";
 		String dbID = "k5ot5tiqxeyd11si";
 		String dbPassword = "yn4xnqv94lzkyj0d";
-		Class.forName("com.mysql.jdbc.Driver");
+		//Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver"); //로컬호스트와 달리 classnotfound 에러가 떠서 이렇게 고쳐봄
 		conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
 				
 			}catch(Exception e){
