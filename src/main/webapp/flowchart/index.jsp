@@ -4,7 +4,7 @@
 <html lang="en">
 
 <head>
-	<title>2018305012 김성준</title>
+	<title>bbsLogicGenerator</title>
 	<meta charset="utf-8">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -65,7 +65,7 @@
 	<div class="w3-teal">
 	  <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776; </button>
 	  <div class="w3-container">	
-	    <h1>Server Setup Generator</h1>
+	    <h1>BBS Logic Generator</h1>
 	    
 	    
 	  </div>
