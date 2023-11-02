@@ -125,9 +125,10 @@ public class staticWebReturn extends HttpServlet {
 	//어떻게 리턴할지는 아직 안정함
 	public void dataHolder_to_serial(dataHolder dh, String sessionID) {
 		//저장할 파일 경로
-		String directoryPath = "C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\test";
-		String filePath = directoryPath + "/dataHolder" + sessionID + ".ser"; 
+		//String directoryPath = "C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\test";
+		//String filePath = directoryPath + "/dataHolder" + sessionID + ".ser"; 
 		
+		String filePath = "src/test/" + "dataHolder" + sessionID + ".ser";
 		try {
 			FileOutputStream fileOut = new FileOutputStream(filePath);
 			ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);

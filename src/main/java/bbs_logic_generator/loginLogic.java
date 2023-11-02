@@ -51,7 +51,8 @@ public class loginLogic {
 				 if (loginSuccessOp.containsKey("input_1") && loginSuccessOp.get("input_1").contains("로그인 기능")) {
 					 dh.setCorrect_path((String) sc.getAttribute(loginSuccess_Op));
 				 }else {
-					 dh.setCorrect_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(loginSuccess_Op));
+					 //dh.setCorrect_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(loginSuccess_Op));
+					 dh.setCorrect_path("/test/" + (String) sc.getAttribute(loginSuccess_Op));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
 				 }
 				//dh.setCorrect_path((String) sc.getAttribute(loginSuccess_Op));
 			}else {
@@ -74,7 +75,8 @@ public class loginLogic {
 					 if (returnOp.containsKey("input_1") && returnOp.get("input_1").contains("아이디가 없을 경우")) {
 						 dh.setId_error_path((String) sc.getAttribute(outputOp_title_of_idError));
 					 }else {
-						 dh.setId_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_idError));
+						 //dh.setId_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_idError));
+						 dh.setId_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_idError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
 					 }
 					
 					//dh.setId_error_path((String) sc.getAttribute(outputOp_title_of_idError));
@@ -100,7 +102,8 @@ public class loginLogic {
 					if (returnOp.containsKey("input_1") && returnOp.get("input_1").contains("비밀번호가 틀릴 경우")) {
 						 dh.setPw_error_path((String) sc.getAttribute(outputOp_title_of_pwError));
 					 }else {
-						 dh.setPw_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));
+						 //dh.setPw_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));
+						 dh.setPw_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
 					 }
 					//dh.setPw_error_path((String) sc.getAttribute(outputOp_title_of_pwError));
 				}

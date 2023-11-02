@@ -199,7 +199,9 @@ public class processHTML extends HttpServlet {
 	private void saveAtServer(Document doc, String filename) {
 		// Document 객체를 HTML 파일로 저장
 		File outputFile = new File(
-				"C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\main\\webapp\\test\\" + filename);
+				//"C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\main\\webapp\\test\\" + filename);
+				"/src/main/webapp/test/" + filename);
+		
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, StandardCharsets.UTF_8));
 			writer.write(Parser.unescapeEntities(doc.outerHtml(), false)); // Document 객체를 HTML 문자열로 변환하여 파일에 기록
