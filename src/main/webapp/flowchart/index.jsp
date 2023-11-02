@@ -492,20 +492,23 @@
 				
 //여기서부터 테스트코드(AJAX로 /staticWebReturn.java로 전송한다.)
 				 $.ajax({
-				    url: '/bbs_logic_generator/staticWebReturn',
+				    //url: '/bbs_logic_generator/staticWebReturn',
+				    url: '${pageContext.request.contextPath}/staticWebReturn',
 				    type: 'POST',
 				    data: JSON.stringify({ flowchartData: data }),//
 				    contentType: 'application/json',//
 				    dataType: 'json',//
 				    success: function(response) {
 				    	
+				    	//플로우 차트 완성후, 리다이렉트 설정 코드
 				    	// 파일 입력란을 선택
 				    	var fileInput = $('#loginStartPage')[0];
 				    	// 선택한 파일의 이름을 가져옵니다.
 				    	var selectedFileName = fileInput.files[0].name; 
 				    	console.log('selectedFileName : ' + selectedFileName);
 				    	// 리다이렉트 URL 변수 완성
-				    	var redirectURL = '/bbs_logic_generator/test/' + selectedFileName;
+				    	//var redirectURL = '/bbs_logic_generator/test/' + selectedFileName;
+				    	var redirectURL = '/test/' + selectedFileName;
 				    	// 클라이언트 측에서 리다이렉트
 				    	window.location.href = redirectURL;
 				    	
@@ -589,7 +592,8 @@
 			      	var data = {};
 			      	data[original_text] = input.value;
 			      	 $.ajax({
-						    url: '/bbs_logic_generator/overWriteData',
+						    //url: '/bbs_logic_generator/overWriteData',
+						    url: '${pageContext.request.contextPath}/overWriteData',
 						    type: 'POST',
 						    data: JSON.stringify(data),
 						    contentType: 'application/json',
@@ -636,7 +640,8 @@
 			console.log(data);//
 			
 			$.ajax({
-				url: '/bbs_logic_generator/overWriteData',
+				//url: '/bbs_logic_generator/overWriteData',
+				url: '${pageContext.request.contextPath}/overWriteData',
 				type: 'POST',
 				data: JSON.stringify(data),
 				contentType: 'application/json',
@@ -681,7 +686,8 @@
 			formData.append("opTitle", opTitle); //테스트
 			
 			   $.ajax({
-				      url: '/bbs_logic_generator/processHTML',
+				      //url: '/bbs_logic_generator/processHTML',
+				      url: '${pageContext.request.contextPath}/processHTML',
 				      type: 'POST',
 				      data: formData,
 				      processData: false,
