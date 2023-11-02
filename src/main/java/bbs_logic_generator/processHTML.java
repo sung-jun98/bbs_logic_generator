@@ -47,7 +47,7 @@ public class processHTML extends HttpServlet {
 		// System.out.println("HTML 파일 수신 완료/ filename : " + filename);//테스트용
 		System.out.println("opTitle은 " + opTitle + '\n');// 테스트
 		// 파일업로드를 한 오퍼레이터의 title이 키가 되고, 업로드한 파일명이 value가 된 채로 ServletContext에 업로드
-		getServletContext().setAttribute(opTitle, filename);
+		//getServletContext().setAttribute(opTitle, filename); //heroku에서 배포할 때는 에러가 나서 삭제한다. 어차피 테스트 용도였으니까
 		request.getSession().setAttribute(opTitle, filename);//
 		
 		// 우선 오퍼레이터 '입력값'에서 파일을 업로드했을시
@@ -198,17 +198,18 @@ public class processHTML extends HttpServlet {
 	// 수정한 임시파일을 서버내 webapp 폴더에 저장하는 메서드
 	private void saveAtServer(Document doc, String filename) {
 		// Document 객체를 HTML 파일로 저장
+		
 		File outputFile = new File(
 				//"C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\main\\webapp\\test\\" + filename);
-				"src/main/webapp/test/" + filename);
+				"src/main/webapp/test2/" + filename);
 		
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, StandardCharsets.UTF_8));
 			writer.write(Parser.unescapeEntities(doc.outerHtml(), false)); // Document 객체를 HTML 문자열로 변환하여 파일에 기록
-			writer.close();
+			writer.close(); 
 			System.out.println("Document 객체를 파일로 저장했습니다.");
 		} catch (IOException e) {
-			System.err.println("파일 저장에 실패했습니다: " + e.getMessage());
+			System.err.println("파일 저장에 실패했습니다: " + e.getMessage() );
 		}
 	}
 

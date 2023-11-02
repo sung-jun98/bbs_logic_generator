@@ -30,7 +30,24 @@ public class MyServletContextListener implements ServletContextListener, Servlet
          
          
     }
-    
+    //헤로쿠에서 배포할때 에러가 나서 ServletContextAttributeListener의 기본 메서드를 오버라이드해주기 위해서 추가했다.
+    public void attributeAdded(ServletContextAttributeEvent event) {
+        String attributeName = event.getName();
+        Object attributeValue = event.getValue();
+        // 서블릿 컨텍스트의 속성이 추가될 때 실행할 코드 작성
+    }
+
+    public void attributeRemoved(ServletContextAttributeEvent event) {
+        String attributeName = event.getName();
+        // 서블릿 컨텍스트의 속성이 제거될 때 실행할 코드 작성
+    }
+
+    public void attributeReplaced(ServletContextAttributeEvent event) {
+        String attributeName = event.getName();
+        Object oldValue = event.getValue();
+        Object newValue = event.getServletContext().getAttribute(attributeName);
+        // 서블릿 컨텍스트의 속성이 대체될 때 실행할 코드 작성
+    }
    
 	
 	public void contextDestroyed(ServletContextEvent event)  { 
