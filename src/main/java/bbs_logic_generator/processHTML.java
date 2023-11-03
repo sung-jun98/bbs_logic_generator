@@ -208,6 +208,7 @@ public class processHTML extends HttpServlet {
 			writer.write(Parser.unescapeEntities(doc.outerHtml(), false)); // Document 객체를 HTML 문자열로 변환하여 파일에 기록
 			writer.close(); 
 			System.out.println("Document 객체를 파일로 저장했습니다.");
+			System.out.println("파일이 저장된 경로: " + outputFile.getAbsolutePath());
 		} catch (IOException e) {
 			System.err.println("파일 저장에 실패했습니다: " + e.getMessage() );
 		}
