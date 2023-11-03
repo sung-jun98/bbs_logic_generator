@@ -201,7 +201,7 @@ public class processHTML extends HttpServlet {
 		
 		File outputFile = new File(
 				//"C:\\Users\\tjdwn\\Dev\\Workspace\\bbs_logic_generator\\src\\main\\webapp\\test\\" + filename);
-				"src/main/webapp/test2/" + filename);
+				"src/main/webapp/test/" + filename);
 		
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile, StandardCharsets.UTF_8));
