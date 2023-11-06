@@ -9,6 +9,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+
+
 //로그인 기능과 관련되어있는 정보를 operatorInfo(DataHolder안에 있는 변수)와 Application Scope로부터 필요한 부분만 추출하는 클래스
 public class loginLogic {
 	//
@@ -52,7 +54,9 @@ public class loginLogic {
 					 dh.setCorrect_path((String) sc.getAttribute(loginSuccess_Op));
 				 }else {
 					 //dh.setCorrect_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(loginSuccess_Op));
-					 dh.setCorrect_path("/test/" + (String) sc.getAttribute(loginSuccess_Op));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+					 //구버전(로컬 서버에 저장)
+					 //dh.setCorrect_path("/test/" + (String) sc.getAttribute(loginSuccess_Op));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+					 dh.setCorrect_path("/deploy/" + (String) sc.getAttribute(loginSuccess_Op));
 				 }
 				//dh.setCorrect_path((String) sc.getAttribute(loginSuccess_Op));
 			}else {
@@ -76,7 +80,10 @@ public class loginLogic {
 						 dh.setId_error_path((String) sc.getAttribute(outputOp_title_of_idError));
 					 }else {
 						 //dh.setId_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_idError));
-						 dh.setId_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_idError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+						 //구버전(로컬서버에 저장하는 방식)
+						 //dh.setId_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_idError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+						 dh.setId_error_path("/deploy/" + (String) sc.getAttribute(outputOp_title_of_idError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+
 					 }
 					
 					//dh.setId_error_path((String) sc.getAttribute(outputOp_title_of_idError));
@@ -103,7 +110,10 @@ public class loginLogic {
 						 dh.setPw_error_path((String) sc.getAttribute(outputOp_title_of_pwError));
 					 }else {
 						 //dh.setPw_error_path("/bbs_logic_generator/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));
-						 dh.setPw_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+						 //구버전(로컬 서버에 저장하는 방식)
+						 //dh.setPw_error_path("/test/" + (String) sc.getAttribute(outputOp_title_of_pwError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+						 dh.setPw_error_path("/deploy/" + (String) sc.getAttribute(outputOp_title_of_pwError));//배포를 했더니 절대경로가 꼬여서 다시 수정해줌
+
 					 }
 					//dh.setPw_error_path((String) sc.getAttribute(outputOp_title_of_pwError));
 				}
@@ -122,7 +132,10 @@ public class loginLogic {
 					
 					
 					outputOp_title_of_dbError = checkRegex(outputOp_title_of_dbError);
-					dh.setDb_error_path((String) sc.getAttribute(outputOp_title_of_dbError));
+					//구버전
+					//dh.setDb_error_path((String) sc.getAttribute(outputOp_title_of_dbError));
+					//신버전
+					dh.setDb_error_path("/deploy/" + (String) sc.getAttribute(outputOp_title_of_dbError));
 					System.out.println("DB오류 관련 로직 실행중");
 				}
 			}else {

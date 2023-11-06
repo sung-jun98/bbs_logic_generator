@@ -42,7 +42,8 @@ public class writeActionLogic {
 				
 				
 				outputOp_title_of_writeAction = checkRegex(outputOp_title_of_writeAction);
-				dh.setSuccessPath((String) hs.getAttribute(outputOp_title_of_writeAction));
+				//게시물 저장 로직이 성공했을경우의 경로
+				dh.setSuccessPath("/deploy/" + (String) hs.getAttribute(outputOp_title_of_writeAction));
 			}
 			
 			//'저장할 DB 정보'와 연결되어있는 DB 속성 관련 정보

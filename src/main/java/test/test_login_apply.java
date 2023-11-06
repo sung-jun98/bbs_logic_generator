@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bbs_logic_generator.dataHolder;
+import dbLogic.dataHolderDAO;
 
 
 //사용자에게 최종적으로 반환할 로그인 관련 서블릿. 
@@ -51,12 +52,14 @@ public class test_login_apply extends HttpServlet {
 		
 		this.dataHolderPath = "dataHolder" + (String) request.getParameter("sessionID") + ".ser";
 		//.ser의 직렬화된 객체를 역직렬화.
-		try {
-			this.dh = deserializeDataHolder();
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { this.dh = deserializeDataHolder();
+		 * 
+		 * } catch (ClassNotFoundException e) { e.printStackTrace(); }
+		 */
+		//dataHolder 객체를 DB에서 select후 역직렬화
+		dataHolderDAO dhDAO = new dataHolderDAO();
+		this.dh = dhDAO.readDataHolderFromDatabase((String) request.getParameter("sessionID"));
 		
 		analyzeDataHolder(dh); //역직렬화된 dh의 맞춤형 변수 가져옴
 		
