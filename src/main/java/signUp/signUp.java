@@ -62,7 +62,7 @@ public class signUp extends HttpServlet {
 			response.sendRedirect(signUp_successPath);
 			
 		}else {//어느 경우에도 해당 안될 경우. 즉 디폴트값 설정을 여기에 해주면 된다. 
-			response.sendRedirect("/server_setup_generator/demo.jsp");
+			response.sendRedirect("/flowchart/demo.jsp");
 			System.out.println("(signUp.java) DB에 작업 실패");
 		}
 	
