@@ -30,6 +30,10 @@ public class sessionListener implements HttpSessionListener, HttpSessionAttribut
 //        event.getSession().setAttribute("bbsDate_db", "bbsDate");
 //        event.getSession().setAttribute("bbsAvailable_db", "bbsAvailable");
 
+      //'가입 페이지' 오퍼레이터의 디폴트 Attr값
+        event.getSession().setAttribute("signUpID", "signUpID");
+        event.getSession().setAttribute("signUpPW", "signUpPW");
+        event.getSession().setAttribute("signUpEmail", "signUpEmail");
         
         
     }

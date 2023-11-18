@@ -45,7 +45,18 @@ public class dataHolder implements Serializable {
 	private String bbsAvailable_db = "bbsAvailable";
 	//===============게시물 삭제(deleteAction)에 관한 변수==========================
 	
+	//===============회원가입(signUp)에 관한 변수=========================
+	private String signUpID = "signUpID";
+	private String signUpPW = "signUpPW";
+	private String signUpEmail = "signUpEmail"; //회원가입 하려는 유저의 HTML파일내 name태그명
 	
+	private String signUp_successPath = "flowchart/demo.jsp"; //결과가 성공적일시 연결될 페이지
+	
+	//DB의 속성
+	private String signUpTableName_db = "signUp";
+	private String signUpID_db = "userID";
+	private String signUpPW_db = "userPW";
+	private String signUpEmail_db = "userEmail";
 	//========================================
 	
 	//OperatorInfo에 대한 getter
@@ -294,6 +305,71 @@ public class dataHolder implements Serializable {
 		}
 		
 		//==========여기서부터 BBS delete관련 setter/getter============
+		
+		//==========여기서부터 SignUp관련 setter/getter============
+		public String getSignUpID() {
+			return signUpID;
+		}
+
+		public void setSignUpID(String signUpID) {
+			this.signUpID = signUpID;
+		}
+
+		public String getSignUpPW() {
+			return signUpPW;
+		}
+
+		public void setSignUpPW(String signUpPW) {
+			this.signUpPW = signUpPW;
+		}
+
+		public String getSignUpEmail() {
+			return signUpEmail;
+		}
+
+		public void setSignUpEmail(String signUpEmail) {
+			this.signUpEmail = signUpEmail;
+		}
+
+		public String getSignUp_successPath() {
+			return signUp_successPath;
+		}
+
+		public void setSignUp_successPath(String signUp_successPath) {
+			this.signUp_successPath = signUp_successPath;
+		}
+
+		public String getSignUpTableName_db() {
+			return signUpTableName_db;
+		}
+
+		public void setSignUpTableName_db(String signUpTableName_db) {
+			this.signUpTableName_db = signUpTableName_db;
+		}
+
+		public String getSignUpID_db() {
+			return signUpID_db;
+		}
+
+		public void setSignUpID_db(String signUpID_db) {
+			this.signUpID_db = signUpID_db;
+		}
+
+		public String getSignUpPW_db() {
+			return signUpPW_db;
+		}
+
+		public void setSignUpPW_db(String signUpPW_db) {
+			this.signUpPW_db = signUpPW_db;
+		}
+
+		public String getSignUpEmail_db() {
+			return signUpEmail_db;
+		}
+
+		public void setSignUpEmail_db(String signUpEmail_db) {
+			this.signUpEmail_db = signUpEmail_db;
+		}
 }
 
 

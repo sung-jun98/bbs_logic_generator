@@ -19,7 +19,12 @@ public class bbsDAO {
 	private String bbsContent = "bbsContent";
 	private String bbsAvailable = "bbsAvailable";
 	
-
+	//회원가입 관련 필요한 DB속성
+	//DB의 속성
+	private String signUpTableName_db = "signUp";
+	private String signUpID_db = "userID";
+	private String signUpPW_db = "userPW";
+	private String signUpEmail_db = "userEmail";
 	
 	public bbsDAO() { //생성자
 		try {
@@ -65,6 +70,22 @@ public class bbsDAO {
 		}
 		if(bbsAvailable != null) {
 			this.bbsAvailable = bbsAvailable;
+		}
+	}
+	
+	//dataHolder로부터 추출한 '저장할 DB정보(회원가입)' 오퍼레이터와 연결된 속성으로 바꾸어주는 메서드
+	public void signUp_setAttr(String signUpTableName_db, String signUpID_db, String signUpPW_db, String signUpEmail_db) {
+		if(signUpTableName_db != null) {
+			this.signUpTableName_db = signUpTableName_db;
+		}
+		if(signUpID_db != null) {
+			this.signUpID_db = signUpID_db;
+		}
+		if(signUpPW_db != null) {
+			this.signUpPW_db = signUpPW_db;
+		}
+		if(signUpEmail_db != null) {
+			this.signUpEmail_db = signUpEmail_db;
 		}
 	}
 	
@@ -145,6 +166,27 @@ public class bbsDAO {
             e.printStackTrace();
         }
         return -1; //데이터베이스 오류
+		
+	}
+	
+	//회원가입
+	public int signUp(String signUpID_db, String signUpPW_db, String signUpEmail_db) {
+		String SQL = "INSERT INTO " + this.signUpTableName_db + "(" + this.signUpID_db + ", " + this.signUpPW_db + ", "
+				+ this.signUpEmail_db + ") VALUES(?, ?, ?)"; 
+		System.out.println("(bbsDAO.write()) 완성된 SQL문은 " + SQL);
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			pstmt.setString(1, signUpID_db);
+			pstmt.setString(2, signUpPW_db);
+			pstmt.setString(3, signUpEmail_db);
+
+			return pstmt.executeUpdate(); //실행 결과(정수값) 리턴
+		} catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			//closeResources(conn, pstmt, null);
+		}
+		return -1; //데이터베이스 오류
 		
 	}
 	
