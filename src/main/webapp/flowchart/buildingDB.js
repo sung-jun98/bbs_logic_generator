@@ -19,7 +19,7 @@ $(function() {
 		making_operatios_of_DB(data); //작성한 DB테이블을 바탕으로 선택할수 있는 오퍼레이션을 만든다.
 	
 		$.ajax({
-		  url: '/bbs_logic_generator/dbBuilder',
+		  url: '/dbBuilder',
 		  method: 'POST',
 		  data: JSON.stringify(data),
 		  contentType: 'application/json',
@@ -53,7 +53,7 @@ $(function() {
 		making_operatios_of_DB(data); //작성한 DB테이블을 바탕으로 선택할수 있는 오퍼레이션을 만든다.
 	
 		$.ajax({
-		  url: '/bbs_logic_generator/dbBuilder',
+		  url: '/dbBuilder',
 		  method: 'POST',
 		  data: JSON.stringify(data),
 		  contentType: 'application/json',
@@ -86,7 +86,7 @@ $(function() {
 		making_operatios_of_DB(data); //작성한 DB테이블을 바탕으로 선택할수 있는 오퍼레이션을 만든다.
 	
 		$.ajax({
-		  url: '/bbs_logic_generator/dbBuilder',
+		  url: '/dbBuilder',
 		  method: 'POST',
 		  data: JSON.stringify(data),
 		  contentType: 'application/json',
@@ -118,7 +118,7 @@ $(function() {
 		making_operatios_of_DB(data); //작성한 DB테이블을 바탕으로 선택할수 있는 오퍼레이션을 만든다.
 	
 		$.ajax({
-		  url: '/bbs_logic_generator/dbBuilder',
+		  url: '/dbBuilder',
 		  method: 'POST',
 		  data: JSON.stringify(data),
 		  contentType: 'application/json',
