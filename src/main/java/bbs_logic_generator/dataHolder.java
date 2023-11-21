@@ -247,7 +247,8 @@ public class dataHolder implements Serializable {
 		}
 
 		public void setSuccessPath(String successPath) {
-			this.successPath = "/bbs_logic_generator/test/" + successPath;
+			//this.successPath = "/bbs_logic_generator/test/" + successPath;
+			this.successPath = successPath;
 		}
 
 		public String getBbsTableName_db() {

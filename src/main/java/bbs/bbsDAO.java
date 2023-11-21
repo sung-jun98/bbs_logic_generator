@@ -107,7 +107,8 @@ public class bbsDAO {
 	
 	//현재 업로드 하는 게시물이 몇번째 게시물인지 얻어온다.
 	public int getNext() {
-		String SQL = "SELECT bbsID FROM BBS ORDER BY bbsID DESC";
+		//String SQL = "SELECT bbsID FROM BBS ORDER BY bbsID DESC";
+		String SQL = "SELECT " +  this.bbsID + " FROM " + this.bbsTableName + " ORDER BY " + this.bbsID + " DESC";
 		try {
 			PreparedStatement psmt = conn.prepareStatement(SQL);
 			rs = psmt.executeQuery();

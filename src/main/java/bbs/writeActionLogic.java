@@ -36,15 +36,34 @@ public class writeActionLogic {
 		
 		
 		if(operatorInfo.containsKey("게시물 작성")) {
-			//'리턴 페이지n' 오퍼레이터와 연결되어 있을 경우 
-			if(operatorInfo.get("게시물 작성").get("output_0") != null) {
+			//'리턴 페이지n' 오퍼레이터의 첫번째 라벨과 연결되어 있을 경우 
+			if(operatorInfo.get("게시물 작성").containsKey("output_0")) {
 				String outputOp_title_of_writeAction= operatorInfo.get("게시물 작성").get("output_0").get(0);//리턴페이지 오퍼레이터의 title 출력됨
 				
 				
-				outputOp_title_of_writeAction = checkRegex(outputOp_title_of_writeAction);
-				//게시물 저장 로직이 성공했을경우의 경로
-				dh.setSuccessPath("/deploy/" + (String) hs.getAttribute(outputOp_title_of_writeAction));
+				//outputOp_title_of_writeAction = checkRegex(outputOp_title_of_writeAction);
+				Map<String, ArrayList<String>> writeSuccessOp = operatorInfo.get(outputOp_title_of_writeAction);
+				//'로그인 기능' - '일치' 오퍼레이터가 '리턴 페이지'오퍼레이터의 두번째 input과 연결되어 있을 경우에는 URL을 set, 그 이외의 경우에는 앞에 경로를 붙여서 set
+				 if (writeSuccessOp.containsKey("input_1") && writeSuccessOp.get("input_1").contains("게시물 작성")) {
+					 dh.setSuccessPath((String) hs.getAttribute(outputOp_title_of_writeAction));
+				 }else {
+					 //구버전(로컬서버에 파일형태로 저장)
+					 //dh.setCorrect_path("/server_setup_generator/test/" + (String) sc.getAttribute(loginSuccess_Op));
+					 //신버전(DB활용)
+					 dh.setSuccessPath("/deploy/" + (String) hs.getAttribute(outputOp_title_of_writeAction));
+				 }
+				
 			}
+			/*
+			 * if(operatorInfo.get("게시물 작성").get("output_0") != null) { String
+			 * outputOp_title_of_writeAction=
+			 * operatorInfo.get("게시물 작성").get("output_0").get(0);//리턴페이지 오퍼레이터의 title 출력됨
+			 * 
+			 * 
+			 * outputOp_title_of_writeAction = checkRegex(outputOp_title_of_writeAction);
+			 * //게시물 저장 로직이 성공했을경우의 경로 dh.setSuccessPath("/deploy/" + (String)
+			 * hs.getAttribute(outputOp_title_of_writeAction)); }
+			 */
 			
 			//'저장할 DB 정보'와 연결되어있는 DB 속성 관련 정보
 			dh.setBbsTableName_db((String) hs.getAttribute("dbTableNameBBS"));

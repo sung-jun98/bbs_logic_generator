@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bbs_logic_generator.dataHolder;
+import dbLogic.dataHolderDAO;
 
 //클라이언트가 업로드한 웹페이지중, 게시물 업로드와 관련된 form은 여기로 연결된다.
 @WebServlet("/writeAction")
@@ -37,17 +38,19 @@ public class writeAction extends HttpServlet {
 	
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html; charset=UTF-8"); 
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		bbsDAO bbsDAO = new bbsDAO();
 		this.dataHolderPath = "dataHolder" + (String) request.getParameter("sessionID") + ".ser";
 
 		//dataHolder 역직렬화 
-		try {
-			this.dh = deserializeDataHolder();
-			
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		}
+		/*
+		 * try { this.dh = deserializeDataHolder();
+		 * 
+		 * } catch (ClassNotFoundException e) { e.printStackTrace(); }
+		 */
+		dataHolderDAO dhDAO = new dataHolderDAO();
+		this.dh = dhDAO.readDataHolderFromDatabase((String) request.getParameter("sessionID"));
 		//dataHolder로부터 분석
 		analyzeDataHolder(this.dh);
 		//저장할 DB와 관련된 속성 
