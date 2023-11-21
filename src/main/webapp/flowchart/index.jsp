@@ -58,7 +58,9 @@
 		  <div class="draggable_operator w3-bar-item w3-button btn btn-outline-secondary" data-nb-inputs="1" data-nb-outputs="2" id="writeAction">게시물 작성</div>
 		  <div class="draggable_operator w3-bar-item w3-button btn btn-outline-secondary" data-nb-inputs="2" data-nb-outputs="1" id="deleteAction">게시물 삭제</div>
 		  <div class="draggable_operator w3-bar-item w3-button btn btn-outline-secondary" data-nb-inputs="1" data-nb-outputs="2" id="signUpAction">회원가입</div>
-		 
+		  <div class="draggable_operator w3-bar-item w3-button btn btn-outline-secondary" data-nb-inputs="2" data-nb-outputs="1" id="redirectSet">리다이렉트 설정</div>
+		  <div class="draggable_operator w3-bar-item w3-button btn btn-outline-secondary" data-nb-inputs="2" data-nb-outputs="1" id="redirectSet">리턴 페이지</div>
+		  
 		  <button class="get_data btn btn-outline-secondary" id="get_data" style="bottom:5px; position:absolute; left: 35%;">작성 완료</button>
 		  
 	</div>
@@ -552,7 +554,9 @@
 				    	var opTitle = opTitleArray[0]; //업로드한 파일명중 하나
 				    	var redirectURL = '/deploy/' + opTitle;
 				    	// 클라이언트 측에서 리다이렉트
-				    	window.location.href = redirectURL;
+				    	//window.location.href = redirectURL;
+				    	// 새로운 탭에서 URL 열기
+				        window.open(redirectURL, '_blank');
 				    	
 				      console.log('response : ' + response.result);
 				      //console.log(JSON.stringify(data, null, 2));

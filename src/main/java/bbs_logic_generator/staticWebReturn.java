@@ -24,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import bbs.writeActionLogic;
 import dbLogic.dataHolderDAO;
+import redirect.redirectLogic;
 import signUp.signUpLogic;
 
 @WebServlet(urlPatterns = "/staticWebReturn", loadOnStartup = 1) // 웰컴 페이지 설정
@@ -77,6 +78,11 @@ public class staticWebReturn extends HttpServlet {
 	     signUpLogic signUpLogic = new signUpLogic(dh, session);
 	     signUpLogic.extract();
 	     dh = signUpLogic.getDh();
+	     
+	     //=======리다이렉트 설정 관련======
+	     redirectLogic redirectLogic = new redirectLogic(dh, session);
+	     redirectLogic.extract();
+	     dh = redirectLogic.getDh();
 	     
 	     //dataHolder_to_serial(dh, sessionID);
 	     dataHolderDAO dhDAO = new dataHolderDAO();
